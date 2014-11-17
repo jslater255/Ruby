@@ -16,12 +16,12 @@ TWOAUTH_SITE = 'https://api.twitter.com/1.1/'
 # http://hueniverse.com/
 
 # Consumer key and secret for general access to Twitter site
-TWOAUTH_CONSUMER_KEY = 'z1GETcQePsltafyvbidNmw'
-TWOAUTH_CONSUMER_SECRET = 'sUGsgm6FzzqZmswsDNozfeuKZYLYzEu9Ziz18xlI'
+TWOAUTH_CONSUMER_KEY = 'x1VnlVSTOVYbjxr4WI8qiIzLd'
+TWOAUTH_CONSUMER_SECRET = 'PbeI3EUk5ZlCkbKcW9PpN7fraDRs5JPkhFJrlucn0y9qwi59Kx'
 
 # Access token and secret used for single access use
-TWOAUTH_ACCESS_TOKEN = '62477426-hbz5jMcOegnqTPsumygoiSzcQNJadiiMVFhrUmcEB'
-TWOAUTH_ACCESS_SECRET = 'PHOwSU6rWzGZaNJJXkksdop6f0NR84wrxbZWwyXXMGA'
+TWOAUTH_ACCESS_TOKEN = '387119121-wcb8grhtKzST9r1UTzUgnFonROrBlPvcaSbjD8ZA'
+TWOAUTH_ACCESS_SECRET = 'sgAsHCfH1negTRyIEHpUA0DJnP8AsW0Hyww4fnNxROunQ'
 
 # Prepare the access token here
 consumer = OAuth::Consumer.new(TWOAUTH_CONSUMER_KEY, TWOAUTH_CONSUMER_SECRET,
