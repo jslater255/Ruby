@@ -2,7 +2,8 @@ require 'test_helper'
 
 class BroadcastsControllerTest < ActionController::TestCase
   setup do
-    @broadcast = broadcasts(:one)
+    @user = :one
+    @broadcast = broadcasts(@user)
   end
 
   test "should get index" do

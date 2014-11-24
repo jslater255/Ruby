@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       self.current_user = user_detail
       uri = session[:original_uri]
       session[:original_uri] = nil
-      redirect_to(uri || home_url)
+      redirect_to(SITE_URL)
       flash[:notice] = I18n.t('sessions.login-success')
     else
       flash[:error] = I18n.t('sessions.login-failure') + " #{params[:login]}"
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
   #DELETE /session
   def destroy
     session[:user_id] = nil
-    redirect_to home_url
+    redirect_to SITE_URL
   end
 
 end

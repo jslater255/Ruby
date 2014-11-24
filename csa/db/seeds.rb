@@ -18,13 +18,13 @@ User.transaction do
                        user: user)
   end
   # Create one special admin user
-  user = User.create!(surname: 'Loftus',
-                      firstname: 'Chris',
-                      email: 'cwl@aber.ac.uk',
-                      phone: '01970 622422',
+  user = User.create!(surname: 'Slater',
+                      firstname: 'James',
+                      email: 'jas38@aber.ac.uk',
+                      phone: '07875671207',
                       grad_year: 1985)
   UserDetail.create!(login: 'admin',
-                     password: 'taliesin',
+                     password: 'password',
                      user: user)
 
   # Create some dummy feeds

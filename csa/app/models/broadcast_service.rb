@@ -1,4 +1,5 @@
 class BroadcastService
+  require "koala"
 
   # The content in the broadcast object will be broadcast to each feed in
   # the feeds hash. Any communication failures will be flagged with an
@@ -8,7 +9,9 @@ class BroadcastService
   # polymorphic calls. This is left to the reader as an exercise, but ideally
   # you would want to make this a singleton rather than use class scope methods. The
   # error handling mechanism is also a bit clunky and non-user friendly.
-  def self.broadcast(broadcast, feeds)
+
+  # Passing in the access_token from the Session data to be able to write onto the facebook wall.
+  def self.broadcast(broadcast, feeds, access_token_fb)
     puts "feeds: #{feeds.inspect}"
     result = []
     feeds.each do |feed, value|
@@ -18,6 +21,7 @@ class BroadcastService
         when "email"
           result.concat(via_email(broadcast, feeds[:alumni_email]))
         when "facebook"
+          result.concat(via_facebook(broadcast,access_token_fb))
         when "RSS"
         when "atom"
       end
@@ -57,6 +61,22 @@ class BroadcastService
       end
     rescue => e
       result = [feed: 'twitter', code: 500, message: e.message]
+    end
+    result
+  end
+
+  def self.via_facebook(broadcast,access_token_fb)
+    result = []
+    begin
+      # @access_fb is the connection to the fb wall
+      @access_fb = Koala::Facebook::API.new(access_token_fb)
+      # "me" is the account owner
+      # "feed" is so we know where to put the post
+      @access_fb.put_connections("me", "feed", :message => broadcast.content)
+      # Now wire up with the correct feed
+      add_feed broadcast, 'facebook'
+    rescue => e
+      result = [feed: 'Facebook', code: 500, message: e.message]
     end
     result
   end

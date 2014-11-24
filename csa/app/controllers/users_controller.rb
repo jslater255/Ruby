@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # Since dealing with sensitive data we use SSL
   # Only destroy does not require SSL, all the others do
 
-  force_ssl except: [:destroy]
+  #force_ssl except: [:destroy]
 
   before_action :admin_required, only: [:index, :search, :destroy]
   before_action :set_current_page, except: [:index]

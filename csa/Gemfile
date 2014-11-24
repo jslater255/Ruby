@@ -57,3 +57,12 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# UML Drawing software
+group :development, :test do
+    gem 'railroady'
+end
+
+# Facebook posting gem
+gem 'omniauth-facebook'
+gem "koala", "~> 1.10.0rc"

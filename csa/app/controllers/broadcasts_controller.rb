@@ -46,11 +46,10 @@ class BroadcastsController < ApplicationController
     no_errors = false
     respond_to do |format|
       if @broadcast.save
-
         # Only after saving do we try and do the real broadcast. Could have been
         # done using an observer, but I wanted this to be more explicit
 
-        results = BroadcastService.broadcast(@broadcast, params[:feeds])
+        results = BroadcastService.broadcast(@broadcast, params[:feeds],session[:access_token])
         if results.length > 0
           # Something went wrong when trying to broadcast to one or more of the
           # feeds.

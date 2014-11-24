@@ -10,13 +10,13 @@ Csa::Application.routes.draw do
   # Also, don't want to support editing of the session
   resource :session, only: [:new, :create, :destroy]
 
-  get 'home', to: 'home#index', as: :home
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+
+  match 'home/callback' => 'home#callback', :via => [:get]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
