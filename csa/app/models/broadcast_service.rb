@@ -23,6 +23,7 @@ class BroadcastService
         when "facebook"
           result.concat(via_facebook(broadcast,access_token_fb))
         when "RSS"
+          result.concat(via_RSS(broadcast))
         when "atom"
       end
     end
@@ -78,6 +79,12 @@ class BroadcastService
     rescue => e
       result = [feed: 'Facebook', code: 500, message: e.message]
     end
+    result
+  end
+
+  def self.via_RSS(broadcast)
+    result = []
+    add_feed broadcast, 'RSS'
     result
   end
 

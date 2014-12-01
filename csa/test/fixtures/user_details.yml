@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  login: admin
+  salt: 702222806575400.5642338937003137
+  crypted_password: 07d437267876250110bbcc94c28e819a926cf79f39d5e4d5268f7d75a3aefe7e
+  user_id:
+
+two:
+  login: cwl
+  salt: 702222806575400.5642338937003137
+  crypted_password: 07d437267876250110bbcc94c28e819a926cf79f39d5e4d5268f7d75a3aefe7e
+  user_id:

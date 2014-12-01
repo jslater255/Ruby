@@ -66,3 +66,6 @@ end
 # Facebook posting gem
 gem 'omniauth-facebook'
 gem "koala", "~> 1.10.0rc"
+
+# Test coverage gem
+gem 'simplecov', :require => false, :group => :test

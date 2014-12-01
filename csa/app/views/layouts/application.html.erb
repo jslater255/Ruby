@@ -19,7 +19,6 @@
           <span class="flash_message"><%= value %></span>
         </span>
   <% end %>
-
   <!-- Blank URI so browser will request current page when form submitted -->
   <%= form_tag '', method: 'GET', class: 'locale' do %>
       <%= select_tag 'locale', options_for_select(LANGUAGES, I18n.locale), \
@@ -33,6 +32,7 @@
 </div>
 
 <div id="footer">
+  <%= auto_discovery_link_tag(:rss, "http://localhost:3000/broadcasts.rss") %>
 </div>
 
 </body>
